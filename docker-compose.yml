@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  node:
+    restart: always
+    build: ./node-example
+    ports:
+      - 3001:3000
+    volumes:
+      - ./node-example:/code
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb: {}
